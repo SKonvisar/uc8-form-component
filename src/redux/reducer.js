@@ -1,4 +1,4 @@
-import { UPDATE_FORM } from "./actions";
+import { SUBMIT_FORM } from "./actions";
 
 const initialState = {
   first_name: "",
@@ -9,12 +9,14 @@ const initialState = {
 
 export const formReducer = (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_FORM:
+    case SUBMIT_FORM:
       return {
         ...state,
-        [action.field]: action.value,
+        formData: action.payload,
       };
     default:
       return state;
   }
 };
+
+export default formReducer;
