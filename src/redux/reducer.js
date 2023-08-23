@@ -8,15 +8,14 @@ const initialState = {
 };
 
 export const formReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case SUBMIT_FORM:
-      return {
-        ...state,
-        ...action.payload,
-      };
-    default:
-      return state;
+  if (action.type === SUBMIT_FORM) {
+    return {
+      ...state,
+      ...action.payload,
+    };
   }
+
+  return state;
 };
 
 export default formReducer;

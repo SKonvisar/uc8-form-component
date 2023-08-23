@@ -44,15 +44,14 @@ export const MessageForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (isValid) {
-      console.log(formData);
-      dispatch(submitFormAction(formData));
-      resetForm();
-    }
+
+    alert(`Send API request with data: ${JSON.stringify(formData, null, 2)}`);
+    dispatch(submitFormAction(formData));
+    resetForm();
   };
 
   const submitDisabled = !isValid;
-  
+
   return (
     <form className="my-form" onSubmit={handleSubmit}>
       <InputField
