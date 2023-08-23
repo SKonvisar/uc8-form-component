@@ -8,7 +8,7 @@
 /* Color palette (feel free to customize) */
 :root {
   --primary-color: #3498db;
-  --secondary-color: #e74c3c;
+  --error-color: #e74c3c;
   --bg-color: #f4f4f4;
   --border-color: #dcdcdc;
 }
@@ -25,63 +25,7 @@ main {
   justify-content: center;
 }
 
-main > div {
+main section {
   padding: 25px;
   flex: 1;
-}
-
-.my-form {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-  padding: 20px;
-  width: 75%;
-  min-width: 400px;
-  margin: 0 auto;
-}
-
-.form-label {
-  margin-bottom: 15px;
-}
-
-.form-input,
-.form-textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-  font-size: 16px;
-  margin-top: 5px;
-}
-
-.form-textarea {
-  resize: none; /* Disable resizing of textarea */
-}
-
-.form-submit-button {
-  align-self: center; /* Center button horizontally */
-  padding: 10px 20px;
-  border: none;
-  background-color: var(--primary-color);
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.form-submit-button:hover {
-  background-color: var(--secondary-color);
-}
-
-.form-submit-button:disabled {
-  background-color: #ccc; /* Grayed out background */
-  cursor: not-allowed; /* Change cursor on hover */
-  opacity: 0.7; /* Reduce opacity for visual feedback */
-}
-
-.error {
-  color: var(--secondary-color);
-  font-size: 14px;
-  margin-top: 5px;
 }

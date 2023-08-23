@@ -37,6 +37,13 @@ export const useFormState = ({ initialValues, validators }) => {
     setTouched((prevState) => ({ ...prevState, [name]: true }));
   };
 
+  const resetForm = () => {
+    setFormData(initialValues);
+    setErrors({});
+    setTouched({});
+    setIsValid(false);
+  };
+
   return {
     formData,
     setFormData,
@@ -45,5 +52,6 @@ export const useFormState = ({ initialValues, validators }) => {
     isValid,
     handleInputChange,
     handleBlur,
+    resetForm,
   };
 };

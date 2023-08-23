@@ -12,7 +12,7 @@ export const formReducer = (state = initialState, action) => {
     case SUBMIT_FORM:
       return {
         ...state,
-        formData: action.payload,
+        ...action.payload,
       };
     default:
       return state;

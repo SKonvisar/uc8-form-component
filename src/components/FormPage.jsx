@@ -1,11 +1,15 @@
-import MessageForm from "./MessageForm/MessageForm";
+import { MessageForm } from "./MessageForm";
+import { DisplayData } from "./DisplayData";
 
 export const FormPage = () => {
   return (
     <main>
-      <div>
+      <section>
         <MessageForm />
-      </div>
+      </section>
+      <section>
+        <DisplayData />
+      </section>
     </main>
   );
 };

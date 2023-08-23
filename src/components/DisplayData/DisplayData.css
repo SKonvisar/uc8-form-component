@@ -1,0 +1,23 @@
+.display-data-container {
+  overflow-x: auto;
+}
+
+.data-table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  background-color: var(--bg-color);
+}
+
+.data-table td {
+  border: 1px solid var(--border-color);
+  padding: 8px;
+}
+
+.data-table td:nth-child(1) {
+  font-weight: bold;
+}
+
+.data-table td:nth-child(2) {
+  width: 200px;
+  white-space: wrap;
+}

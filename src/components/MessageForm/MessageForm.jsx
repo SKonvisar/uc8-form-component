@@ -13,6 +13,8 @@ import {
   validateMessage,
 } from "../../helpers/validators";
 
+import "./MessageForm.css";
+
 const initialValues = {
   first_name: "",
   last_name: "",
@@ -27,9 +29,16 @@ const validators = {
   message: validateMessage,
 };
 
-const MessageForm = () => {
-  const { formData, errors, touched, isValid, handleInputChange, handleBlur } =
-    useFormState({ initialValues, validators });
+export const MessageForm = () => {
+  const {
+    formData,
+    errors,
+    touched,
+    isValid,
+    handleInputChange,
+    handleBlur,
+    resetForm,
+  } = useFormState({ initialValues, validators });
 
   const dispatch = useDispatch();
 
@@ -38,13 +47,12 @@ const MessageForm = () => {
     if (isValid) {
       console.log(formData);
       dispatch(submitFormAction(formData));
+      resetForm();
     }
   };
 
-  const submitDisabled =
-    !isValid ||
-    Object.keys(touched).length !== Object.keys(initialValues).length;
-
+  const submitDisabled = !isValid;
+  
   return (
     <form className="my-form" onSubmit={handleSubmit}>
       <InputField
@@ -96,5 +104,3 @@ const MessageForm = () => {
     </form>
   );
 };
-
-export default MessageForm;
