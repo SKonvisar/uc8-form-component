@@ -11,6 +11,21 @@ jest.mock("react-redux", () => ({
 
 window.alert = jest.fn();
 
+const fillFormFields = () => {
+  fireEvent.input(screen.getByLabelText(/first name/i), {
+    target: { value: "John" },
+  });
+  fireEvent.input(screen.getByLabelText(/last name/i), {
+    target: { value: "Doe" },
+  });
+  fireEvent.input(screen.getByLabelText(/email/i), {
+    target: { value: "john.doe@example.com" },
+  });
+  fireEvent.input(screen.getByLabelText(/message/i), {
+    target: { value: "Hello, this is a test message." },
+  });
+};
+
 describe("MessageForm", () => {
   beforeEach(() => {
     mockDispatch.mockClear();
@@ -73,18 +88,7 @@ describe("MessageForm", () => {
 
   it("should enable submit button when all validations pass", () => {
     render(<MessageForm />);
-    fireEvent.input(screen.getByLabelText(/first name/i), {
-      target: { value: "John" },
-    });
-    fireEvent.input(screen.getByLabelText(/last name/i), {
-      target: { value: "Doe" },
-    });
-    fireEvent.input(screen.getByLabelText(/email/i), {
-      target: { value: "john.doe@example.com" },
-    });
-    fireEvent.input(screen.getByLabelText(/message/i), {
-      target: { value: "Hello, this is a test message." },
-    });
+    fillFormFields();
     const submitButton = screen.getByRole("button", { name: /submit/i });
     expect(submitButton).not.toBeDisabled();
   });
@@ -92,18 +96,7 @@ describe("MessageForm", () => {
   it("should dispatch action with form data when submit button clicked", () => {
     render(<MessageForm />);
 
-    fireEvent.input(screen.getByLabelText(/first name/i), {
-      target: { value: "John" },
-    });
-    fireEvent.input(screen.getByLabelText(/last name/i), {
-      target: { value: "Doe" },
-    });
-    fireEvent.input(screen.getByLabelText(/email/i), {
-      target: { value: "john.doe@example.com" },
-    });
-    fireEvent.input(screen.getByLabelText(/message/i), {
-      target: { value: "Hello, this is a test message." },
-    });
+    fillFormFields();
 
     const submitButton = screen.getByRole("button", { name: /submit/i });
     fireEvent.click(submitButton);
